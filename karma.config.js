@@ -38,7 +38,7 @@ module.exports = function(config) {
 
     ngHtml2JsPreprocessor: {
       // strip this from the file path
-      stripPrefix: 'app/',
+      stripPrefix: 'src/',
       moduleName: 'partials'
     },
 
