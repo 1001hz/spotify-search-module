@@ -89,13 +89,13 @@ pipes.orderedAppScripts = function () {
 };
 
 pipes.validatedAppScripts = function () {
-    return gulp.src([paths.scripts,'!src/tests/*.js'])
+    return gulp.src([paths.scripts,'!src/**/*.spec.js'])
         .pipe(print())
         .pipe(plugins.jshint());
 };
 
 pipes.spotifyPartials = function () {
-    return gulp.src(['app/**/*.html', '!app/index.html'])
+    return gulp.src(['src/**/*.html', '!src/index.html'])
         .pipe(plugins.htmlhint({ 'doctype-first': false }));
 };
 
@@ -109,7 +109,7 @@ pipes.scriptedSpotifyPartials = function () {
 };
 
 pipes.builtAppScriptsDev = function () {
-    var scriptedSpotifyPartials = pipes.scriptedSpotifyPartials();
+    var scriptedSpotifyPartials = pipes.scriptedSpotifyPartials().pipe(print());
     var validatedAppScripts = pipes.validatedAppScripts();
     return es.merge(series(scriptedSpotifyPartials, validatedAppScripts))
         .pipe(gulp.dest(paths.devDist));

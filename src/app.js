@@ -2,15 +2,18 @@
 
     'use strict';
 
-    angular.module('app', []);
+    angular.module('app', ['app.spotify']);
+    angular.module('app.spotify', []);
 
     angular
-        .module('app')
+        .module('app.spotify')
         .controller('testController', testController);
 
-    function testController() {
+    testController.$inject = ['SpotifyService'];
 
-        this.speak = "Lookin' good";
+    function testController(SpotifyService) {
+
+
     }
 
 })();

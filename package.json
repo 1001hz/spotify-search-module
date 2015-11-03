@@ -1,5 +1,5 @@
 {
-  "name": "angular_project_template",
+  "name": "spotify-search-module",
   "main": "server.js",
   "engines": {
     "node": "0.12.2"
