@@ -20,15 +20,23 @@
 
             scope.search = function(query){
                 SpotifyService.searchArtists(query)
-                    .then(showResults)
-                    .catch(unableToGetArtist);
+                    .then(showArtistResults)
+                    .catch(unableToResults);
+
+                SpotifyService.searchAlbums(query)
+                    .then(showAlbumResults)
+                    .catch(unableToResults);
             }
 
-            function showResults(artists){
-                scope.artists = artists;
+            function showArtistResults(artists){
+                scope.artists = artists.splice(0,4);
             }
 
-            function unableToGetArtist(error){
+            function showAlbumResults(albums){
+                scope.albums = albums.splice(0,4);
+            }
+
+            function unableToResults(error){
                 console.error(error);
                 scope.error = "Unable to complete search";
             }

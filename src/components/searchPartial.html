@@ -8,7 +8,7 @@
                     <input type="text" class="form-control input-lg" placeholder="Enter artist" data-ng-model="query" />
                     <span class="input-group-btn">
                         <button class="btn btn-info btn-lg" type="button" data-ng-click="search(query)">
-                            <i class="glyphicon glyphicon-search"></i>
+                            Search
                         </button>
                     </span>
                 </div>
@@ -17,7 +17,7 @@
     </div>
     <div class="row">
         <div class="col-md-6">
-            <ul class="list-group" id="contact-list">
+            <ul class="list-group">
                 <li class="list-group-item" data-ng-repeat="artist in artists">
                     <div class="col-xs-12 col-sm-3">
                         <img data-ng-src="{{artist.thumbnail}}" alt="{{artist.name}}" class="img-responsive img-circle" />
@@ -32,4 +32,20 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-md-6">
+            <ul class="list-group">
+                <li class="list-group-item" data-ng-repeat="album in albums">
+                    <div class="col-xs-12 col-sm-3">
+                        <img data-ng-src="{{album.thumbnail}}" alt="{{album.name}}" class="img-responsive img-circle" />
+                    </div>
+                    <div class="col-xs-12 col-sm-9">
+                        <span class="name">{{album.name}}</span><br/>
+                        <span class="text-muted"> <a data-ng-href="{{album.openInSpotify}}">Open in spotify</a></span>
+                    </div>
+                    <div class="clearfix"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>
