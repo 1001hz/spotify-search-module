@@ -6,9 +6,9 @@
         .module("app.spotify")
         .directive("search", search);
 
-    search.$inject = ['SpotifyService'];
+    search.$inject = ['Spotify'];
 
-    function search(SpotifyService) {
+    function search(Spotify) {
 
         return {
             restrict: 'E',
@@ -19,11 +19,11 @@
         function linkFn(scope){
 
             scope.search = function(query){
-                SpotifyService.searchArtists(query)
+                Spotify.searchArtists(query)
                     .then(showArtistResults)
                     .catch(unableToResults);
 
-                SpotifyService.searchAlbums(query)
+                Spotify.searchAlbums(query)
                     .then(showAlbumResults)
                     .catch(unableToResults);
             }

@@ -4,11 +4,11 @@
 
     angular
         .module("app.spotify")
-        .factory("SpotifyService", SpotifyService);
+        .factory("Spotify", Spotify);
 
-    SpotifyService.$inject = ['APIService', 'Artist', 'Album'];
+    Spotify.$inject = ['APIService', 'Artist', 'Album'];
 
-    function SpotifyService(APIService, Artist, Album) {
+    function Spotify(APIService, Artist, Album) {
 
         return {
             searchArtists: function (query) {

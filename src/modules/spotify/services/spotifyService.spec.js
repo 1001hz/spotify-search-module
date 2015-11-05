@@ -1,6 +1,6 @@
 describe('Spotify data provider service', function () {
 
-    var SpotifyService;
+    var Spotify;
     var $scope;
     var $q;
     function APIServiceMock(){}
@@ -11,7 +11,7 @@ describe('Spotify data provider service', function () {
 
     beforeEach(function(){
         inject(function ($injector) {
-            SpotifyService = $injector.get('SpotifyService');
+            Spotify = $injector.get('Spotify');
             $scope = $injector.get('$rootScope').$new();
             $q = $injector.get('$q');
         });
@@ -320,7 +320,7 @@ describe('Spotify data provider service', function () {
     describe('calling search artist method', function () {
 
         it('should get an array of artist objects', function () {
-            SpotifyService
+            Spotify
                 .searchArtists('artist')
                 .then(function (albumObjects) {
                     expect(albumObjects[0]).toBeDefined();
@@ -336,7 +336,7 @@ describe('Spotify data provider service', function () {
     describe('calling search albums method', function () {
 
         it('should get an array of album objects', function () {
-            SpotifyService
+            Spotify
                 .searchAlbums('clear moon')
                 .then(function (albumObjects) {
                     expect(albumObjects[0]).toBeDefined();
